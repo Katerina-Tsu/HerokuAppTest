@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DropdownTest {
     WebDriver driver;
+    private static final String HEROKU_APP_URL = "http://the-internet.herokuapp.com/dropdown";
 
     @BeforeMethod
     public void  iniTTest(){
@@ -24,33 +25,10 @@ public class DropdownTest {
     }
 
     @Test
-    public void inputTest() {
+    public void dropdownTest() {
 
         ChromeOptions options = new ChromeOptions();
-        //options.setHeadless(true);
-        //driver = new ChromeDriver(options);
-        driver.get("http://the-internet.herokuapp.com/inputs");
-        WebElement inputField = driver.findElement(By.tagName("input"));
-        // driver.findElement(By.tagName("input")).sendKeys("20");
-        //driver.findElement(By.tagName("input")).getText();
-        inputField.sendKeys("20");
-        String actualTextFromInputField = inputField.getAttribute("value");
-
-        Assert.assertEquals(actualTextFromInputField,"20");
-
-        inputField.sendKeys(Keys.ARROW_DOWN);
-        actualTextFromInputField = inputField.getAttribute("value");
-
-        Assert.assertEquals(actualTextFromInputField,"19");
-
-        inputField.sendKeys(Keys.ARROW_DOWN);
-        actualTextFromInputField = inputField.getAttribute("value");
-
-        Assert.assertEquals(actualTextFromInputField,"18");
-
-        inputField.clear();
-        actualTextFromInputField = inputField.getAttribute("value");
-        Assert.assertEquals(actualTextFromInputField, "");
+        driver.get(HEROKU_APP_URL);
 
         driver.quit();
 

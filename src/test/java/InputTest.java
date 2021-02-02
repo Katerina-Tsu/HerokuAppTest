@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TestOne {
+public class InputTest {
     WebDriver driver;
 
    @BeforeMethod

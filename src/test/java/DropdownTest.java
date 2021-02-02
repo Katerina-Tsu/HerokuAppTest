@@ -35,10 +35,27 @@ public class DropdownTest {
         Assert.assertEquals(selectedText, "Option 2");
 
         List<WebElement> options = dropdown.getOptions();
+        for (WebElement element : options) {
+            System.out.println(element.getText());
+            //System.out.println(element.isEnabled());
+        }
 
+        List<WebElement> elementList = driver.findElements(By.xpath("//table[@id = 'table1']//tbody//tr"));
+        boolean isDueValuePresent = false;
+        for (WebElement element : elementList) {
+            if (element.getText().contains("Conway")) {
+                if (element.getText().contains("$50.00")) {
+                    isDueValuePresent = true;
+                }
+            }
+            System.out.println(element.getText());
+            //System.out.println(element.isEnabled());
+        }
+        Assert.assertEquals(isDueValuePresent, true);
+
+        driver.findElement(By.xpath("//table[@id = 'table1']//tbody//tr[4]//td[4]")).getText();
 
         driver.quit();
-
 
     }
 }

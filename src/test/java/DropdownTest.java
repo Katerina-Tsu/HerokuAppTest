@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,9 +27,12 @@ public class DropdownTest {
 
     @Test
     public void dropdownTest() {
-
-        ChromeOptions options = new ChromeOptions();
         driver.get(HEROKU_APP_URL);
+        Select dropdown = new Select(driver.findElement(By.id("dropdown")));
+        //driver.findElement(By.id("dropdown"));
+        dropdown.selectByVisibleText("Option 2");
+        String selectedText = dropdown.getFirstSelectedOption().getText();
+        Assert.assertEquals(selectedText, "Option 2");
 
         driver.quit();
 

@@ -34,6 +34,9 @@ public class DropdownTest {
         String selectedText = dropdown.getFirstSelectedOption().getText();
         Assert.assertEquals(selectedText, "Option 2");
 
+        List<WebElement> options = dropdown.getOptions();
+
+
         driver.quit();
 
 

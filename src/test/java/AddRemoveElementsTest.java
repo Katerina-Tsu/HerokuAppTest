@@ -22,10 +22,11 @@ public class AddRemoveElementsTest {
     @Test
     public void addRemoveElementsTest() {
         driver.get(HEROKU_APP_URL);
-        String secondParagraph = driver.findElement(By.xpath("//body//div[@class = 'example']//p[2]")).getText();
-        String actualTextSecondParagraph = secondParagraph;
-        String expectedTextSecondParagraph = "Sometimes you'll see a typo, other times you won't.";
-        Assert.assertEquals(actualTextSecondParagraph, expectedTextSecondParagraph);
+        driver.findElement(By.xpath("//button[text()='Add Element']")).click();
+        driver.findElement(By.xpath("//button[text()='Add Element']")).click();
+        driver.findElement(By.xpath("//*[@onclick='deleteElement()']")).click();
+
+
         driver.quit();
 }
 }

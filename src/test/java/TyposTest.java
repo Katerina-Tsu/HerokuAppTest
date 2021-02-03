@@ -23,15 +23,12 @@ public class TyposTest {
 }
 
     @Test
-    public void inputTest() {
-        //ChromeOptions options = new ChromeOptions();
+    public void typosTest() {
         driver.get(HEROKU_APP_URL);
         String secondParagraph = driver.findElement(By.xpath("//body//div[@class = 'example']//p[2]")).getText();
         String actualTextSecondParagraph = secondParagraph;
         String expectedTextSecondParagraph = "Sometimes you'll see a typo, other times you won't.";
         Assert.assertEquals(actualTextSecondParagraph, expectedTextSecondParagraph);
-
-
         driver.quit();
 }
 }
